@@ -1,0 +1,153 @@
+<form class="checkout-form" [formGroup]="checkOutForm">
+  <h2> Checkout Form</h2>
+  <div class="form-feild-container">
+    <mat-label>Customer Name<span class="required">*</span></mat-label>
+    <mat-form-field appearance="outline">
+      <input matInput type="text" formControlName="customerName" required autocomplete="off" id="customerName" />
+      <mat-error *ngIf="checkOutForm.get('customerName')?.hasError('required')">
+        {{requiredErrorMessage}}
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <h2>Payment Details</h2>
+  <ng-container formGroupName="paymentDetails">
+    <div class="form-feild-container">
+      <mat-label>CC Number<span class="required">*</span></mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput type="text" formControlName="ccNumber" required autocomplete="off" id="ccNumber" />
+        <mat-error *ngIf="paymentDetailsFormGroup.get('ccNumber')?.hasError('required')">
+          
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-feild-container">
+      <mat-label> Expiry Date<span class="required">*</span></mat-label>
+      <mat-form-field appearence="outline">
+        <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" formControlName="expDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="form-feild-container">
+      <mat-label>Cvc Code<span class="required"> *</span></mat-label>
+      <mat-form-field appearance="outline">
+        <input matInput type="text" formControlName="cvcCode" required autocomplete="off" id="cvcCode" />
+        <mat-error *ngIf="paymentDetailsFormGroup.get('cvcCode')?.hasError('required')">
+          {{requiredErrorMessage}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </ng-container>
+  <div class="address-container"> 
+    <div class="address-type">
+      <h2>Billing Address</h2>
+      <ng-container formGroupName="billingAddress">
+        <div class="form-feild-container">
+          <mat-label> Line1<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line1" required autocomplete="off" id="billingLine1" />
+            <mat-error *ngIf="billingAddressFormGroup.get('line1')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label><span> Line2</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line2" autocomplete="off" id="billingLine2" />
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label><span> Line3</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line3" autocomplete="off" id="billingLine3" />
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label>State<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="state" required autocomplete="off" id="billingState" />
+            <mat-error *ngIf="billingAddressFormGroup.get('state')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label> Postcode<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="postcode" required autocomplete="off" id="billingPostcode" />
+            <mat-error *ngIf="billingAddressFormGroup.get('postcode')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label> Country<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="country" required autocomplete="off" id="billingCountry" />
+            <mat-error *ngIf="billingAddressFormGroup.get('country')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </ng-container>
+    </div>
+    <div class="address-type">
+      <h2>Shipping Address</h2>
+      <ng-container formGroupName="shippingAddress">
+        <div class="form-feild-container">
+          <mat-label> Line1<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line1" required autocomplete="off" id="shippingLine1" />
+            <mat-error *ngIf="shippingAddressFormGroup.get('line1')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label><span> Line2</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line2" autocomplete="off" id="shippingLine2" />
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label><span> Line3</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="line3" autocomplete="off" id="shippingLine3" />
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label>State<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="state" required autocomplete="off" id="shippingState" />
+            <mat-error *ngIf="shippingAddressFormGroup.get('state')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label>Postcode<span class="required"> *</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="postcode" required autocomplete="off" id="shippingPostcode" />
+            <mat-error *ngIf="shippingAddressFormGroup.get('postcode')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-feild-container">
+          <mat-label> Country<span class="required">*</span></mat-label>
+          <mat-form-field appearance="outline">
+            <input matInput type="text" formControlName="country" required autocomplete="off" id="shippingCountry" />
+            <mat-error *ngIf="shippingAddressFormGroup.get('country')?.hasError('required')">
+              {{requiredErrorMessage}}
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="submitData()" [disabled]="checkOutForm.invalid">Proceed To
+    Payment</button>
+
+</form>

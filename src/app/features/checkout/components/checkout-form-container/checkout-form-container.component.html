@@ -1,0 +1,31 @@
+<div class="shopping-cart-read-only">
+  <h2>Checkout</h2>
+  <h3>
+    Purchased products are summarized as cart items in this table
+  </h3>
+  <table class="shopping-cart-table-read-only">
+    <thead>
+      <tr>
+        <th>SL No.</th>
+        <th>Quantity</th>
+        <th>Product Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartItem of products; let i = index;">
+        <td>{{ i + 1 }}</td>
+        <td>
+          <span>{{cartItem.quantity }}</span>
+        </td>
+        <td>{{ cartItem.title | slice:0:20}}</td>
+
+        <td>{{ cartItem.price | currency:"EUR"}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2>Total <span>{{shoppingCartService.totalAmount | currency:"EUR"}}</span></h2>
+
+  <app-checkout-form (onCheckFormSubmit)="submitData($event)"></app-checkout-form>
+
+</div>

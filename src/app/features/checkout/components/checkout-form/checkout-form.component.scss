@@ -1,0 +1,32 @@
+.checkout-form {
+    width:80%;
+    margin: 0 auto;
+    background: #eee;
+    padding: 20px;
+    border-radius: 10px;
+}
+.form-feild-container {
+    display: flex;
+    flex-direction: column;
+}
+.required {
+    color: #ff0000;
+}
+.address-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    .address-type {
+        flex: 1;
+        &:first-child {
+            margin-right: 2%;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .address-container {
+        flex-direction: column;
+
+    }
+  }

@@ -1,0 +1,18 @@
+.shopping-cart-read-only {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.shopping-cart-table-read-only {
+    margin: 0 auto;
+    width: 80%;
+    thead, tbody {
+        text-align: left; 
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .shopping-cart-table-read-only {
+        width: 100%;
+    }
+  }

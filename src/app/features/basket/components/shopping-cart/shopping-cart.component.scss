@@ -1,0 +1,23 @@
+.shopping-cart {
+    width: 90%;
+    margin: 0 auto;
+}
+.shopping-cart-table {
+    margin: 0 auto;
+    width: 80%;
+    thead, tbody {
+        text-align: left; 
+    }
+    .add-remove {
+        font-size: 20px;
+        margin-right: 5px;
+        cursor: pointer;
+        margin-left: 5px;
+        display: inline-block;
+        background: #eee;
+        padding: 6px;
+    }
+    mat-icon {
+        cursor: pointer;
+    }
+}

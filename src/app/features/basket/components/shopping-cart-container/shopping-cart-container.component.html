@@ -1,0 +1,7 @@
+<app-shopping-cart 
+  [products] = "products" 
+  (newItemAdded) = "addQuantity($event.index, $event.item)"
+  (newItemDeleted) = "onClickDelete($event.index, $event.item)"
+  (deleteAllQuantity) = "deleteAllQuantity($event)"
+  (onCheckoutButtonclicked)="onCheckoutButtonclicked()">
+</app-shopping-cart>

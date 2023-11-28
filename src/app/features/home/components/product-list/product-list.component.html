@@ -1,0 +1,20 @@
+
+<div class="container">
+  <mat-card class="mat-card" (mouseover)="toggleHover(item.id)" (mouseleave)="removeHover()"
+    *ngFor="let item of products;  let i=index">
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image class="image" [src]="item.image" alt="alt pic">
+    <mat-card-content>
+      <p class="image-description">
+        {{item.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <span>{{item.price | currency}}</span>
+      <button mat-raised-button color="primary" *ngIf="hoveredElement === item.id " class="add-to-cart"
+        (click)="addProduct(item)">Add To Cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
